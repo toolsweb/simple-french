@@ -11,7 +11,7 @@ body {
   width: 500px;
 }
 
-.exercice {
+#container {
   top: 10%;
   position: absolute;
   background: #cccccc;
@@ -72,7 +72,7 @@ body {
 }
 
 .sound audio {
- /* visibility: hidden; */
+  display: none;
 }
 
 @keyframes movesup {

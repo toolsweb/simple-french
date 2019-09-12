@@ -1,4 +1,4 @@
-
+// Fake data
 let exercices = [
     {
         type: 'learn', image: 'apple.png', sound:'Bonjour.m4a'
@@ -8,10 +8,8 @@ let exercices = [
     }
 ]
 
-class Button {
-    constructor()
-    {
-    }
+class ButtonManager {
+    constructor(){}
 
     createButtonSound(exercice)
     {
@@ -24,47 +22,31 @@ class Button {
         let logo =  document.createElement('img');
         logo.src = 'images/speaker.png';
         sound.appendChild(logo);
-        let container = document.getElementsByClassName('exercice')[0];
+        let container = document.getElementById('container');
         container.appendChild(sound);        
     }
 
-    listenButton() {
+    listenButtons() {
         let sounds = document.getElementsByClassName('sound');
         console.log(sounds)
         for(var i = 0; i < sounds.length; i++)
         {
             console.log(sounds[i]);
             let child = sounds[i].children[0];
-            //child.play();
-            const playedPromise = child.play();
-if (playedPromise) {
-        playedPromise.catch((e) => {
-            if (e.name === 'NotAllowedError' ||
-                e.name === 'NotSupportedError') {
-                //console.log(e.name);
-            }
-        });
-    }
-            // sounds[i].addEventListener('click', (e) => {
-            //     child.play();
-
-
-            // })
+            sounds[i].addEventListener('click', (e) => {
+               child.play();
+            })
         }
-       
-
-        
     }
 }
 
 class App {
-    constructor(exercices)
+    constructor(exercices, buttonManager)
     {    
         this.exercices = exercices;
         this.index = 0;
-        this.button = new Button();
+        this.buttonManager = buttonManager
         this.init();
-
     }
 
     init()
@@ -82,10 +64,12 @@ class App {
         image.src = 'images/' + exercice.image;
         let block = document.getElementsByClassName('image')[0];
         block.appendChild(image);
-
-        this.button.createButtonSound(exercice);
-        this.button.listenButton();
+        this.buttonManager.createButtonSound(exercice);
+        this.buttonManager.listenButtons();
     }
+
 }
 
-let app = new App(exercices);
+
+let buttonManager = new ButtonManager();
+let app = new App(exercices, buttonManager);
