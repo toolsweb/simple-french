@@ -1,0 +1,119 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.progression {
+  position: absolute;
+  background: rgb(184, 184, 184);
+  height: 20px;
+  width: 500px;
+}
+
+.exercice {
+  top: 10%;
+  position: absolute;
+  background: #cccccc;
+  height: 410px;
+  width: 270px;
+  left: 8%;
+  border-radius: 15px;
+}
+
+.image {
+  position: absolute;
+  text-align: center;
+  height: 190px;
+  width: 240px;
+  top: 5%;
+  left: 6%;
+}
+
+.image img {
+  top: 50px;
+  width: 220px;
+  border: 7px solid rgb(250, 250, 250);
+  border-radius: 15px;
+}
+
+.sound {
+  position: absolute;
+  top: 55%;
+  left: 6%;
+  height: 120px;
+  width: 180px;
+  color: rgb(0, 0, 0);
+  display: block;
+  text-decoration: none;
+  margin: 0 auto;
+  border-radius: 5px;
+  border: solid 1px #707070;
+  background: #e6e6e6;
+  text-align: center;
+  padding: 20px 30px;
+  -webkit-transition: all 0.1s;
+  -moz-transition: all 0.1s;
+  transition: all 0.1s;
+  -webkit-box-shadow: 0px 9px 0px #363636;
+  -moz-box-shadow: 0px 9px 0px #4b4b4b;
+  box-shadow: 0px 9px 0px #444444;
+}
+
+.sound:active {
+  -webkit-box-shadow: 0px 2px 0px #363636;
+  -moz-box-shadow: 0px 2px 0px #4b4b4b;
+  box-shadow: 0px 2px 0px #444444;
+  top: 57%;
+}
+
+.sound img {
+  height: 120px;
+}
+
+.sound audio {
+ /* visibility: hidden; */
+}
+
+@keyframes movesup {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-150px);
+  }
+  100% {
+    transform: translateY(-150px);
+  }
+}
+
+.next {
+  position: absolute;
+  background: skyblue;
+  height: 40px;
+  width: 345px;
+  border-radius: 35px;
+  left: 0%;
+  top: 85%;
+  -webkit-transition: all 0.1s;
+  -moz-transition: all 0.1s;
+  transition: all 0.1s;
+  -webkit-box-shadow: 0px 9px 0px #2961fa;
+  -moz-box-shadow: 0px 9px 0px #2961fa;
+  box-shadow: 0px 9px 0px #2961fa;
+  animation: movesup 1s;
+}
+
+.next:active {
+  -webkit-box-shadow: 0px 2px 0px #2961fa;
+  -moz-box-shadow: 0px 2px 0px #2961fa;
+  box-shadow: 0px 2px 0px #2961fa;
+  top: 86%;
+}
+
+.next p {
+  position: relative;
+  top: -110%;
+  left: 45%;
+  font-size: 40px;
+}
