@@ -37,7 +37,6 @@ let exercices = [
   }
 ];
 
-
 class ButtonManager {
   constructor() {}
 
@@ -67,18 +66,18 @@ class ButtonManager {
 }
 
 class ProgressBar {
-    constructor(){}
+  constructor() {}
 
-    init(exercices) {
-        let i = 0;
-        let progression = document.getElementsByClassName("progression");
-        while (i < exercices.length) {
-            let div = document.createElement("div");
-            div.classList.add("level");
-            progression[0].appendChild(div);
-            i++;
-        }
+  init(exercices) {
+    let i = 0;
+    let progression = document.getElementsByClassName("progression");
+    while (i < exercices.length) {
+      let div = document.createElement("div");
+      div.classList.add("level");
+      progression[0].appendChild(div);
+      i++;
     }
+  }
 }
 
 class App {
@@ -115,16 +114,18 @@ class App {
     });
   }
 
-  displayLearn(exercice) {
+  displayImage(exercice) {
     let image = document.createElement("img");
     image.src = "images/" + exercice.image;
-
     let block = document.createElement("div");
     block.classList.add("image");
     block.appendChild(image);
     let container = document.getElementById("container");
     container.appendChild(block);
+  }
 
+  displayLearn(exercice) {
+    this.displayImage(exercice);
     this.buttonManager.createButtonSound(exercice);
     this.buttonManager.listenButtons();
     let sounds = document.getElementsByClassName("sound");
