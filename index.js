@@ -48,6 +48,13 @@ class App {
     this.index = 0;
     this.buttonManager = buttonManager;
     this.init();
+    let nextButton = document.getElementsByClassName("next");
+    nextButton[0].addEventListener("click", e => {
+        
+      this.index += 1;
+
+      this.init();
+    });
   }
 
   init() {

@@ -4,11 +4,20 @@ body {
   overflow: hidden;
 }
 
+.croix i {
+  color: #363636;
+  position: absolute;
+  font-size: 40px;
+  left: 1%;
+}
 .progression {
   position: absolute;
   background: rgb(184, 184, 184);
-  height: 20px;
-  width: 500px;
+  border-radius: 40px;
+  height: 15px;
+  width: 260px;
+  right: 5%;
+  top: 2%;
 }
 
 #container {
@@ -16,8 +25,8 @@ body {
   position: absolute;
   background: #cccccc;
   height: 410px;
-  width: 270px;
-  left: 8%;
+  width: 260px;
+  left: 10%;
   border-radius: 15px;
 }
 
@@ -25,9 +34,9 @@ body {
   position: absolute;
   text-align: center;
   height: 190px;
-  width: 240px;
+  width: 230px;
   top: 5%;
-  left: 6%;
+  left: 5.1%;
 }
 
 .image img {
@@ -40,9 +49,9 @@ body {
 .sound {
   position: absolute;
   top: 55%;
-  left: 6%;
+  left: 5.5%;
   height: 120px;
-  width: 180px;
+  width: 170px;
   color: rgb(0, 0, 0);
   display: block;
   text-decoration: none;
@@ -86,10 +95,7 @@ body {
     transform: translateY(-150px);
   }
   100% {
-    transform: translateY(-150px);
-  }
-  to {
-    transform: translateY(-150px);
+    transform: translateY(-132px);
   }
 }
 
@@ -97,10 +103,10 @@ body {
   position: absolute;
   background: skyblue;
   height: 40px;
-  width: 345px;
+  width: 335px;
   border-radius: 35px;
   left: 0%;
-  top: 85%;
+  top: 86%;
   -webkit-transition: all 0.1s;
   -moz-transition: all 0.1s;
   transition: all 0.1s;
@@ -108,14 +114,14 @@ body {
   -moz-box-shadow: 0px 9px 0px #2961fa;
   box-shadow: 0px 9px 0px #2961fa;
   animation: movesup 1s;
-  animation-iteration-count: 1, 5;
+  animation-fill-mode: forwards;
 }
 
 .next:active {
   -webkit-box-shadow: 0px 2px 0px #2961fa;
   -moz-box-shadow: 0px 2px 0px #2961fa;
   box-shadow: 0px 2px 0px #2961fa;
-  top: 86%;
+  top: 87%;
 }
 
 .next p {
