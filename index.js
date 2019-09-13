@@ -67,8 +67,13 @@ class App {
   displayLearn(exercice) {
     let image = document.createElement("img");
     image.src = "images/" + exercice.image;
-    let block = document.getElementsByClassName("image")[0];
+    
+    let block = document.createElement('div');
+    block.classList.add('image');
     block.appendChild(image);
+    let container = document.getElementById('container');
+    container.appendChild(block);
+
     this.buttonManager.createButtonSound(exercice);
     this.buttonManager.listenButtons();
     let sounds = document.getElementsByClassName("sound");
