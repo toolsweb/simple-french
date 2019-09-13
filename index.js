@@ -9,8 +9,35 @@ let exercices = [
     type: "learn",
     image: "bonjour.png",
     sound: "Bonjour.m4a"
+  },
+  {
+    type: "learn",
+    image: "bonjour.png",
+    sound: "Bonjour.m4a"
+  },
+  {
+    type: "learn",
+    image: "apple.png",
+    sound: "Combien.m4a"
+  },
+  {
+    type: "learn",
+    image: "bonjour.png",
+    sound: "Bonjour.m4a"
+  },
+  {
+    type: "learn",
+    image: "apple.png",
+    sound: "Combien.m4a"
+  },
+  {
+    type: "learn",
+    image: "bonjour.png",
+    sound: "Bonjour.m4a"
   }
 ];
+
+class ProgressBar {}
 
 class ButtonManager {
   constructor() {}
@@ -49,13 +76,16 @@ class App {
     this.buttonManager = buttonManager;
     this.init();
     let nextButton = document.getElementsByClassName("next");
-    nextButton[0].addEventListener("click", e => {
-      this.index += 1;
-      let container = document.getElementById("container");
-      container.innerHTML = "";
-      this.init();
-      nextButton[0].classList.add("hidden");
-    });
+    this.listenNextExercice();
+
+    console.log(exercices.length);
+    let i = 0;
+    let progression = document.getElementsByClassName("progression");
+    while (i < exercices.length) {
+      let div = document.createElement("div");
+      progression[0].appendChild(div);
+      i++;
+    }
   }
 
   init() {
@@ -63,6 +93,17 @@ class App {
     if (this.exercices[this.index].type === "learn") {
       this.displayLearn(this.exercices[this.index]);
     }
+  }
+
+  listenNextExercice() {
+    let nextButton = document.getElementsByClassName("next");
+    nextButton[0].addEventListener("click", e => {
+      this.index += 1;
+      let container = document.getElementById("container");
+      container.innerHTML = "";
+      this.init();
+      nextButton[0].classList.add("hidden");
+    });
   }
 
   displayLearn(exercice) {
