@@ -54,6 +54,7 @@ class App {
       let container = document.getElementById("container");
       container.innerHTML = "";
       this.init();
+      nextButton[0].classList.add("hidden");
     });
   }
 
