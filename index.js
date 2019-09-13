@@ -3,7 +3,7 @@ let exercices = [
   {
     type: "learn",
     image: "apple.png",
-    sound: "Bonjour.m4a"
+    sound: "Combien.m4a"
   },
   {
     type: "learn",
@@ -50,9 +50,9 @@ class App {
     this.init();
     let nextButton = document.getElementsByClassName("next");
     nextButton[0].addEventListener("click", e => {
-        
       this.index += 1;
-
+      let container = document.getElementById("container");
+      container.innerHTML = "";
       this.init();
     });
   }
@@ -67,11 +67,11 @@ class App {
   displayLearn(exercice) {
     let image = document.createElement("img");
     image.src = "images/" + exercice.image;
-    
-    let block = document.createElement('div');
-    block.classList.add('image');
+
+    let block = document.createElement("div");
+    block.classList.add("image");
     block.appendChild(image);
-    let container = document.getElementById('container');
+    let container = document.getElementById("container");
     container.appendChild(block);
 
     this.buttonManager.createButtonSound(exercice);
