@@ -29,6 +29,10 @@ body {
   width: 19px;
 }
 
+.progression > .blue {
+  background: #3e9cf5;
+}
+
 #container {
   top: 10%;
   position: absolute;

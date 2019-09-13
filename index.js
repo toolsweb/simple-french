@@ -83,6 +83,7 @@ class App {
     let progression = document.getElementsByClassName("progression");
     while (i < exercices.length) {
       let div = document.createElement("div");
+      div.classList.add("level");
       progression[0].appendChild(div);
       i++;
     }
@@ -98,6 +99,11 @@ class App {
   listenNextExercice() {
     let nextButton = document.getElementsByClassName("next");
     nextButton[0].addEventListener("click", e => {
+      // Si next n'a pas rouge
+      let levels = document.getElementsByClassName("level");
+      console.log(levels);
+      levels[this.index].classList.add("blue");
+
       this.index += 1;
       let container = document.getElementById("container");
       container.innerHTML = "";
