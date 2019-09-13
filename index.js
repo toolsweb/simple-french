@@ -37,7 +37,6 @@ let exercices = [
   }
 ];
 
-class ProgressBar {}
 
 class ButtonManager {
   constructor() {}
@@ -58,9 +57,7 @@ class ButtonManager {
 
   listenButtons() {
     let sounds = document.getElementsByClassName("sound");
-    console.log(sounds);
     for (var i = 0; i < sounds.length; i++) {
-      console.log(sounds[i]);
       let child = sounds[i].children[0];
       sounds[i].addEventListener("click", e => {
         child.play();
@@ -69,24 +66,30 @@ class ButtonManager {
   }
 }
 
+class ProgressBar {
+    constructor(){}
+
+    init(exercices) {
+        let i = 0;
+        let progression = document.getElementsByClassName("progression");
+        while (i < exercices.length) {
+            let div = document.createElement("div");
+            div.classList.add("level");
+            progression[0].appendChild(div);
+            i++;
+        }
+    }
+}
+
 class App {
-  constructor(exercices, buttonManager) {
+  constructor(exercices, buttonManager, progressbar) {
     this.exercices = exercices;
     this.index = 0;
     this.buttonManager = buttonManager;
+    this.progressbar = progressbar;
     this.init();
-    let nextButton = document.getElementsByClassName("next");
     this.listenNextExercice();
-
-    console.log(exercices.length);
-    let i = 0;
-    let progression = document.getElementsByClassName("progression");
-    while (i < exercices.length) {
-      let div = document.createElement("div");
-      div.classList.add("level");
-      progression[0].appendChild(div);
-      i++;
-    }
+    this.progressbar.init(exercices);
   }
 
   init() {
@@ -132,5 +135,8 @@ class App {
   }
 }
 
+let progressbar = new ProgressBar();
 let buttonManager = new ButtonManager();
-let app = new App(exercices, buttonManager);
+
+// Injection de dépandances
+let app = new App(exercices, buttonManager, progressbar);
